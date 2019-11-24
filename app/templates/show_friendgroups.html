@@ -1,0 +1,26 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+	Finstagram Friend Groups:
+	<a href="/home">Home</a>
+	<a href="/logout">Logout</a>
+<div>
+
+<style type="text/css">
+	table, th, td{border: 1px solid black;}
+</style>
+
+<table>
+	<th>Friend Group</th>
+	<th>Group Creator</th>
+{% for line in data %}
+	<tr>
+		<td>{{line.groupName}}</td>
+		<td>{{line.groupOwner}}</td>
+	</tr>
+{% endfor %}
+</table>
+</body>
+</html>

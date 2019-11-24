@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+	Finstagram Your Notifications:
+	<a href="/home">Home</a>
+	<a href="/logout">Logout</a>
+<div>
+
+<form action ="/notificationsAuth" method="POST">
+
+{% for line in data %}
+	<p> {{line.username_follower}} wants to follow you. </p>
+	<input type="radio" name={{line.username_follower}} value="accept"> Accept
+  	<input type="radio" name={{line.username_follower}} value="deny"> Deny <br>
+{% endfor %}
+
+{% for line in tags %}
+	<p> {{line.photoPoster}} wants to tag you in this photo. </p>
+	<img src={{line.filepath}} alt={{line.filepath}}> <br>
+	<input type="radio" name={{line.photoID}} value="accept"> Accept
+  	<input type="radio" name={{line.photoID}} value="deny"> Deny <br>
+{% endfor %}
+
+	<input type="submit"> <br>
+</form>
+
+{% if not data and not tags%}
+<h1> No New Notifications </h1>
+{% endif %}
+
+
+</body>
+</html>
