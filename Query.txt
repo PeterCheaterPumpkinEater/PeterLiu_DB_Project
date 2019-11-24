@@ -1,0 +1,17 @@
+SELECT DISTINCT *
+                      FROM photo
+                      NATURAL JOIN ((
+                           SELECT photoID
+                           FROM SharedWith
+                           JOIN BelongTo
+                           ON member_username = %s)
+                      UNION (
+                           SELECT photoID
+                           FROM Follow 
+                           JOIN photo
+                           ON username_follower = %s
+                           AND username_followed = photoPoster
+                           AND allFollowers = 1)) as m
+                      LEFT JOIN (Tagged)
+                      ON photo.photoID = Tagged.photoID
+                      ORDER BY photo.photoID DESC
