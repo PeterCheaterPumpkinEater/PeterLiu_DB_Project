@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/followpersonAuth" method="POST">
+<div>
+    Finstagram Follow a person:
+    <a href="/home">Home</a>
+    <a href="/logout">Logout</a>
+</div>
+	<input type="text" name = "username" placeholder="Person's username:" required/> </br>
+	<input type="submit" value = Follow />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+</body>
+</html>

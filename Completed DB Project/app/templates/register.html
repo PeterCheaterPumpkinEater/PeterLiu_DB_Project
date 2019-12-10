@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/registerAuth" method="POST">
+<div>
+    Finstagram Registration:
+    <a href="/">Back</a>
+    <a href="/login">Login</a>
+</div>
+	<input type="text" name = "username" placeholder="username" required/> </br>
+	<input type="password" name = "password" placeholder="password" required/></br>
+	<input type="text" name = "First Name" placeholder="First Name" required/></br>
+	<input type="text" name = "Last Name" placeholder="Last Name" required/></br>
+	<!--<input type="text" name = "Bio" placeholder="bio" required/></br>-->
+	<textarea rows = 20 cols = 50 max length = 1000 name = "Bio" 				placeholder="Write about yourself." required></textarea>
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+</body>
+</html>
